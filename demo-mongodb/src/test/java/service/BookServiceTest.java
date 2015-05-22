@@ -1,4 +1,4 @@
-package dao;
+package service;
 
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoDatabase;
@@ -9,12 +9,15 @@ import de.flapdoodle.embed.mongo.config.MongodConfigBuilder;
 import de.flapdoodle.embed.mongo.config.Net;
 import de.flapdoodle.embed.mongo.distribution.Version;
 import de.flapdoodle.embed.process.runtime.Network;
-import entity.Book;
+import domain.entity.Book;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import service.BookService;
+import util.PropertiesUtil;
 
 import java.util.Arrays;
+import java.util.Properties;
 
 import static org.junit.Assert.*;
 
@@ -26,23 +29,22 @@ public class BookServiceTest {
 
     private MongodExecutable mongodExe;
     private MongodProcess mongodProcess;
-    private MongoClient mongoClient;
 
     private BookService bookService;
 
     @Before
     public void setUp() throws Exception {
+        Properties properties = PropertiesUtil.readProperties("db_config.properties");
+        int port = Integer.parseInt(properties.getProperty("port"));
+
         mongodExe = starter.prepare(new MongodConfigBuilder()
         .version(Version.Main.PRODUCTION)
-        .net(new Net(12345, Network.localhostIsIPv6()))
+        .net(new Net(port, Network.localhostIsIPv6()))
         .build());
 
         mongodProcess = mongodExe.start();
-        mongoClient = new MongoClient("localhost", 12345);
 
-        MongoDatabase db = mongoClient.getDatabase("test");
-        assertNotNull(db);
-        bookService = new BookService(db);
+        bookService = new BookService();
     }
 
     @After

@@ -1,6 +1,5 @@
-package entity;
+package domain.entity;
 
-import entity.Entity;
 import domain.Collection;
 import domain.Key;
 

@@ -1,7 +1,6 @@
-package entity;
+package domain.entity;
 
 import domain.ID;
-import org.bson.Document;
 
 /**
  * Created by trieu on 20/05/2015.

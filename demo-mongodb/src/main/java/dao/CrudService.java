@@ -7,6 +7,7 @@ import com.mongodb.client.result.UpdateResult;
 import domain.Collection;
 import domain.ID;
 import domain.Key;
+import domain.entity.Book;
 import org.apache.commons.lang3.StringUtils;
 import org.bson.Document;
 import org.bson.types.ObjectId;
@@ -161,4 +162,14 @@ public class CrudService <T> {
         field.set(entity, value);
     }
 
+    public List<T> getAll() throws IllegalAccessException, InstantiationException {
+        FindIterable<Document> iterable = db.getCollection(getCollectionName()).find();
+        List<T> entities = new ArrayList<T>();
+        for (Document document : iterable){
+            T entity = createByDocument(document);
+            entities.add(entity);
+        }
+
+        return entities;
+    }
 }
