@@ -164,6 +164,18 @@ public class CrudService <T> {
 
     public List<T> getAll() throws IllegalAccessException, InstantiationException {
         FindIterable<Document> iterable = db.getCollection(getCollectionName()).find();
+        List<T> entities = createByDocuments(iterable);
+
+        return entities;
+    }
+
+    public List<T> find(String key, String value) throws IllegalAccessException, InstantiationException {
+        FindIterable<Document> iterable = db.getCollection(getCollectionName()).find(new Document(key, value));
+        List<T> entities = createByDocuments(iterable);
+        return entities;
+    }
+
+    private List<T> createByDocuments(FindIterable<Document> iterable) throws IllegalAccessException, InstantiationException {
         List<T> entities = new ArrayList<T>();
         for (Document document : iterable){
             T entity = createByDocument(document);

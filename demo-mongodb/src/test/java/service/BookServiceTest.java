@@ -24,33 +24,14 @@ import static org.junit.Assert.*;
 /**
  * Created by trieu on 19/05/2015.
  */
-public class BookServiceTest {
-    private static final MongodStarter starter = MongodStarter.getDefaultInstance();
-
-    private MongodExecutable mongodExe;
-    private MongodProcess mongodProcess;
+public class BookServiceTest extends ServiceTest {
 
     private BookService bookService;
 
-    @Before
+    @Override
     public void setUp() throws Exception {
-        Properties properties = PropertiesUtil.readProperties("db_config.properties");
-        int port = Integer.parseInt(properties.getProperty("port"));
-
-        mongodExe = starter.prepare(new MongodConfigBuilder()
-        .version(Version.Main.PRODUCTION)
-        .net(new Net(port, Network.localhostIsIPv6()))
-        .build());
-
-        mongodProcess = mongodExe.start();
-
+        super.setUp();
         bookService = new BookService();
-    }
-
-    @After
-    public void tearDown() throws Exception {
-        mongodProcess.stop();
-        mongodExe.stop();
     }
 
     @Test
