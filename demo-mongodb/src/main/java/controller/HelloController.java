@@ -3,6 +3,7 @@ package controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -12,10 +13,11 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/welcome")
 public class HelloController {
     @RequestMapping(method = RequestMethod.GET)
-    public ModelAndView printWebcome(){
-        ModelAndView model = new ModelAndView("hello");
+    public @ResponseBody String printWebcome(){
+       /* ModelAndView model = new ModelAndView("hello");
 
         model.addObject("message", "Spring 3 MVC Hello World");
-        return model;
+        return model;*/
+        return "Hello World!";
     }
 }

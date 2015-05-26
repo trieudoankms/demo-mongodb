@@ -10,10 +10,11 @@
     <title>Book Store - Detail</title>
 </head>
 <body>
+    <input id="book_id" type="hidden" value="${book.id}"/>
     <h1>Book Store - Detail</h1>
     <h3>${book.name}</h3>
-    <p>${book.author}</p>
-    <p><fmt:formatNumber value="${book.price}" type="currency"/></p>
+    <p>Author: ${book.author}</p>
+    <p>Price: <fmt:formatNumber value="${book.price}" type="currency"/></p>
     <div>Tags:
         <ul>
             <c:forEach var="tag" items="${book.tags}">
@@ -21,15 +22,19 @@
             </c:forEach>
         </ul>
     </div>
-    <div>
-    <p><strong>Comment</strong></p>
-    <textarea rows="4" cols="50" placeholder="Enter your comment."></textarea>
-    </div>
+    <div id="comment_container"></div>
+
+    <script id="comment_template" type="text/template">
+        <p><strong>Comment</strong></p>
+        <textarea id="inputComment" rows="4" cols="50" placeholder="Enter your comment."></textarea>
+        <div><button id="buttonComment">Submit</button></div>
+        <div id="list_comment"></div>
+    </script>
 
      <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
      <script src="/demo-mongodb/script/underscore-min.js"></script>
      <script src="/demo-mongodb/script/backbone-min.js"></script>
-     <script src="/demo-mongodb/script/model.js"></script>
+     <script src="/demo-mongodb/script/comment.js"></script>
      <script src="/demo-mongodb/script/app.js"></script>
 </body>
 </html>
