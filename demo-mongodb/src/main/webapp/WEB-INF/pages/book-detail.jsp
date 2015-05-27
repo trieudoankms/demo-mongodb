@@ -10,24 +10,33 @@
     <title>Book Store - Detail</title>
 </head>
 <body>
-    <input id="book_id" type="hidden" value="${book.id}"/>
-    <h1>Book Store - Detail</h1>
-    <h3>${book.name}</h3>
-    <p>Author: ${book.author}</p>
-    <p>Price: <fmt:formatNumber value="${book.price}" type="currency"/></p>
-    <div>Tags:
-        <ul>
-            <c:forEach var="tag" items="${book.tags}">
-                <li>"${tag}"</li>
-            </c:forEach>
-        </ul>
+    <div class="page">
+        <div class="header">
+            <h1>Book Store - Detail</h1>
+        </div>
+        <div class="content">
+            <input id="book_id" type="hidden" value="${book.id}"/>
+            <h3>${book.name}</h3>
+            <p>Author: ${book.author}</p>
+            <p>Price: <fmt:formatNumber value="${book.price}" type="currency"/></p>
+            <div>Tags:
+                <ul>
+                    <c:forEach var="tag" items="${book.tags}">
+                        <li>"${tag}"</li>
+                    </c:forEach>
+                </ul>
+            </div>
+            <div id="comment_container"></div>
+        </div>
+        <div class="footer">
+            This page is created by trieudoan
+        </div>
     </div>
-    <div id="comment_container"></div>
 
     <script id="comment_template" type="text/template">
         <p><strong>Comment</strong></p>
         <textarea id="inputComment" rows="4" cols="50" placeholder="Enter your comment."></textarea>
-        <div><button id="buttonComment">Submit</button></div>
+        <div><button id="buttonComment" class="btn">Submit</button></div>
         <div id="list_comment"></div>
     </script>
 

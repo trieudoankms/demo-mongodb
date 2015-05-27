@@ -32,7 +32,8 @@ CommentView = Backbone.View.extend({
                 success: function (collection, response) {
                     this.comments = collection;
                     this.comments.each(function(comment){
-                        var commentElement = "<div>" + comment.attributes.comment +"</div>";
+                        var commentElement = "<div class='comment_border'><div class='comment_detail'><img src='/demo-mongodb/images/user.jpg' alt='User' height='42' width='42'> <span>"
+                                            + comment.attributes.comment +"</span></div></div>";
                         $("#list_comment").append(commentElement);
                     });
                 }
@@ -50,7 +51,8 @@ CommentView = Backbone.View.extend({
                     this.model = new Comment();
                     $("#inputComment").val('');
                     this.comments.unshift(model);
-                    var commentElement = "<div>" + model.attributes.comment +"</div>";
+                    var commentElement = "<div class='comment_border'><div class='comment_detail'><img src='/demo-mongodb/images/user.jpg' alt='User' height='42' width='42'> <span>"
+                                         + model.attributes.comment +"</span></div></div>";
                      $("#list_comment").append(commentElement);
                 },
                 error: function (model, response) {

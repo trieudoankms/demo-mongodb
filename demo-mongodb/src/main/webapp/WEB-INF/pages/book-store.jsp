@@ -12,26 +12,35 @@
 <title>Book Store</title>
 </head>
 <body>
-<h1>Book Store</h1>
-<a href="./books.do">Admin Page</a>
-<hr/>
-<table id="table01">
-  <tr>
-    <th>Name</th>
-    <th>Author</th>
-    <th>Price</th>
-    <th></th>
-  </tr>
-  <c:forEach var="book" items="${books}">
-  <tr>
-    <td>${book.name}</td>
-    <td>${book.author}</td>
-    <td><fmt:formatNumber value="${book.price}" type="currency"></fmt:formatNumber></td>
-    <td>
-        <a href="./book-store/detail.do?id=${book.id}">Detail</a>
-    </td>
-  </tr>
-  </c:forEach>
-</table>
+<div class="page">
+  <div class="header">
+    <h1>Book Store</h1>
+    <a href="./books.do">Admin Page</a>
+  </div>
+  <div class="content">
+    <table id="table01">
+      <tr>
+        <th>Name</th>
+        <th>Author</th>
+        <th>Price</th>
+        <th></th>
+      </tr>
+      <c:forEach var="book" items="${books}">
+      <tr>
+        <td>${book.name}</td>
+        <td>${book.author}</td>
+        <td><fmt:formatNumber value="${book.price}" type="currency"></fmt:formatNumber></td>
+        <td>
+            <a href="./book-store/detail.do?id=${book.id}">Detail</a>
+        </td>
+      </tr>
+      </c:forEach>
+    </table>
+  </div>
+  <div class="footer">
+    This page is created by trieudoan
+  </div>
+</div>
+
 </body>
 </html>

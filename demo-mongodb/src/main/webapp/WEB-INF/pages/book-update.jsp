@@ -7,30 +7,30 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="/demo-mongodb/css/style.css" />
 <title>Insert title here</title>
 </head>
 <body>
     <h1>Book Store - Update Existing Book</h1>
     <form:form commandName="book"  action="updateBook.do"  method="post">
         <form:hidden path="id"/>
-        <div>
-            <label>Name</label>
-            <form:input path="name" />
+        <div class="form-group">
+            <div><label>Name</label></div>
+            <div><form:input path="name" /></div>
         </div>
-         <div>
-            <label>Author</label>
-            <form:input path="author" />
+         <div class="form-group">
+            <div><label>Author</label></div>
+            <div><form:input path="author" /></div>
         </div>
-         <div>
-            <label>Price</label>
-            <form:input path="price" />
+         <div class="form-group">
+            <div><label>Price</label></div>
+            <div><form:input path="price" /></div>
         </div>
-         <div>
-            <label>Tags (separated by commas)</label>
-            <form:input path="tags" />
+         <div class="form-group">
+            <div><label>Tags (separated by commas)</label></div>
+            <div><form:input path="tags" /></div>
         </div>
-        <button type="submit">Add</button>
+        <button type="submit" class="btn">Update</button>
     </form:form>
 </body>
 </html>
