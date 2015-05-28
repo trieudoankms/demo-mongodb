@@ -50,4 +50,8 @@ public class CommentService {
     public List<Comment> getCommentsOfBook(String bookId) throws InstantiationException, IllegalAccessException {
         return commentCrudService.find(Comment.BOOK_REF_KEY, bookId);
     }
+
+    public List<Comment> getCommentsOfBook(String bookId, int startPosition, int number) throws InstantiationException, IllegalAccessException {
+        return commentCrudService.find(Comment.BOOK_REF_KEY, bookId, startPosition, number);
+    }
 }

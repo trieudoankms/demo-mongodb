@@ -25,18 +25,21 @@ public class CommentController {
         return comments;
     }
 
+    @RequestMapping(value = "/{bookId}/{startPosition}/{number}", method = RequestMethod.GET)
+    public @ResponseBody List<Comment> getCommentsOfBook(@PathVariable String bookId, @PathVariable int startPosition, @PathVariable int number) throws IllegalAccessException, InstantiationException {
+        List<Comment> comments = commentService.getCommentsOfBook(bookId, startPosition, number);
+        return comments;
+    }
+
     @RequestMapping(method = RequestMethod.POST)
     public @ResponseBody Comment addComment(@RequestBody Comment comment) throws IllegalAccessException, InstantiationException {
         Comment newComment = commentService.createComment(comment);
         return newComment;
     }
 
-    @RequestMapping(value = "/hello", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public @ResponseBody Comment hello(){
-        Comment comment = new Comment();
-        comment.setComment("Hello world!");
-        comment.setBookId("bookId1");
-        comment.setId("commentId1");
-        return comment;
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public @ResponseBody boolean deleteComment(@PathVariable String id){
+        System.out.print("COMMENT ID: " + id);
+        return commentService.deleteComment(id);
     }
 }

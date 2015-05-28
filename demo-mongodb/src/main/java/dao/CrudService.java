@@ -175,6 +175,12 @@ public class CrudService <T> {
         return entities;
     }
 
+    public List<T> find(String key, String value, int startPosition, int number) throws IllegalAccessException, InstantiationException {
+        FindIterable<Document> iterable = db.getCollection(getCollectionName()).find(new Document(key, value)).limit(number).skip(startPosition);
+        List<T> entities = createByDocuments(iterable);
+        return entities;
+    }
+
     private List<T> createByDocuments(FindIterable<Document> iterable) throws IllegalAccessException, InstantiationException {
         List<T> entities = new ArrayList<T>();
         for (Document document : iterable){

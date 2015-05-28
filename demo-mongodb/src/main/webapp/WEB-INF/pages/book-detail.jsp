@@ -36,14 +36,11 @@
     <script id="comment_template" type="text/template">
         <p><strong>Comment</strong></p>
         <textarea id="inputComment" rows="4" cols="50" placeholder="Enter your comment."></textarea>
-        <div><button id="buttonComment" class="btn">Submit</button></div>
+        <div><button id="btnComment" class="btn">Submit</button></div>
         <div id="list_comment"></div>
+        <div><button id="btnLoadMore" class="btn">More comments</button></div>
     </script>
 
-     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-     <script src="/demo-mongodb/script/underscore-min.js"></script>
-     <script src="/demo-mongodb/script/backbone-min.js"></script>
-     <script src="/demo-mongodb/script/comment.js"></script>
-     <script src="/demo-mongodb/script/app.js"></script>
+     <script data-main="/demo-mongodb/script/comment" src="/demo-mongodb/script/lib/require.js"></script>
 </body>
 </html>

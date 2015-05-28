@@ -8,7 +8,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="css/style.css" />
-<script src="script/app.js"></script>
 <title>Insert title here</title>
 </head>
 <body>
@@ -47,4 +46,5 @@
   </c:forEach>
 </table>
 </body>
+<script data-main="/demo-mongodb/script/main" src="/demo-mongodb/script/lib/require.js"></script>
 </html>

@@ -8,7 +8,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="css/style.css" />
-<script src="script/app.js"></script>
 <title>Book Store</title>
 </head>
 <body>
@@ -42,5 +41,6 @@
   </div>
 </div>
 
+<script data-main="/demo-mongodb/script/main" src="/demo-mongodb/script/lib/require.js"></script>
 </body>
 </html>
