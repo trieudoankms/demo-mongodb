@@ -6,6 +6,9 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="_csrf" content="${_csrf.token}"/>
+    <!-- default header name is X-CSRF-TOKEN -->
+    <meta name="_csrf_header" content="${_csrf.headerName}"/>
     <link rel="stylesheet" type="text/css" href="/demo-mongodb/css/style.css" />
     <title>Book Store - Detail</title>
 </head>
@@ -42,5 +45,15 @@
     </script>
 
      <script data-main="/demo-mongodb/script/comment" src="/demo-mongodb/script/lib/require.js"></script>
+
+     <script>
+     $(function () {
+         var token = $("meta[name='_csrf']").attr("content");
+         var header = $("meta[name='_csrf_header']").attr("content");
+         $(document).ajaxSend(function(e, xhr, options) {
+             xhr.setRequestHeader(header, token);
+         });
+     });
+     </script>
 </body>
 </html>
