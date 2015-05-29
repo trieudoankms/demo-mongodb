@@ -12,13 +12,17 @@ Comment = Backbone.Model.extend({
 
 //var comment = new Comment();
 
+CommentCollection = Backbone.Collection.extend({
+    model: Comment
+});
+
 // var self;
 CommentView = Backbone.View.extend({
         initialize: function(){
             this.model = new Comment();
 
             // read list of comment
-            this.comments = new Backbone.Collection;
+            this.comments = new CommentCollection();
             this.startPosition = 0;
             this.number = 5;
             this.updateGetCommentsUrl();
@@ -36,11 +40,10 @@ CommentView = Backbone.View.extend({
             var self = this;
             this.comments.fetch({
                 success: function (collection, response) {
-
-                    this.comments = collection;
-                    this.comments.each(function(comment){
+                    self.comments.each(function(comment){
                         self.createCommentView(comment);
                     });
+                    console.log(self.comments);
                 }
             });
         },
@@ -56,9 +59,9 @@ CommentView = Backbone.View.extend({
             this.model.save(null, {
                 success: function (model, response) {
                     console.log(model);
-                    this.model = new Comment();
+                    self.model = new Comment();
                     $("#inputComment").val('');
-                    this.comments.unshift(model);
+                    self.comments.unshift(model);
                     self.createCommentView(model);
                 },
                 error: function (model, response) {
@@ -71,12 +74,17 @@ CommentView = Backbone.View.extend({
             this.startPosition += this.number;
             this.updateGetCommentsUrl();
             var self = this;
-            this.comments.fetch({
+            var commentCollectionLoading = new CommentCollection();
+            commentCollectionLoading.url = this.comments.url;
+            commentCollectionLoading.fetch({
                 success: function (collection, response) {
+                    console.log(self.comments);
                     collection.each(function(comment){
-                        this.comments.push(comment);
+                        self.comments.push(comment);
+
                         self.createCommentView(comment);
                     });
+                    console.log(self.comments);
                 }
             });
         },
@@ -84,11 +92,15 @@ CommentView = Backbone.View.extend({
             var id =  $(event.currentTarget).data('id');
            if (confirm("Are you sure you want to delete this comment?")) {
                 var comment = this.comments.get(id);
+                console.log(comment);
                 comment.url = "/demo-mongodb/comments/" + comment.attributes.id + ".do";
                 console.log(comment);
+                var self = this;
                 comment.destroy({success: function(model, response) {
-                    this.comments.remove(comment);
+                    //self.comments.remove(comment);
+                    $(event.currentTarget).closest("div[class^='comment_border']").remove();
                 }});
+                console.log(comment);
            }
         },
         updateModel: function(){
