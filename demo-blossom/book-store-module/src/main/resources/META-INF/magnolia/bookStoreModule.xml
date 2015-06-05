@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE module SYSTEM "module.dtd" >
+<module>
+  <name>bookStoreModule</name>
+  <displayName>${project.name}</displayName>
+  <description>${project.description}</description>
+  <class>trieu.doan.BookStoreModule</class>
+  <versionHandler>trieu.doan.setup.BookStoreModuleVersionHandler</versionHandler>
+  <version>${project.version}</version>
+
+  <dependencies>
+    <dependency>
+      <name>core</name>
+      <version>5.3.7/*</version>
+    </dependency>
+    <dependency>
+      <name>rendering</name>
+      <version>5.3.7/*</version>
+    </dependency>
+    <dependency>
+      <name>templating</name>
+      <version>5.3.7/*</version>
+    </dependency>
+    <dependency>
+      <name>templating-jsp</name>
+      <version>5.3.7/*</version>
+    </dependency>
+    <dependency>
+      <name>blossom</name>
+      <version>3.0.6/*</version>
+    </dependency>
+  </dependencies>
+</module>

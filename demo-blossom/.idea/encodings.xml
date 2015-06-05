@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/book-store-module/src/main/resources/bookStoreModule/pages/main.jsp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/book-store-module/src/main/resources/bookStoreModule/pages/mainArea.jsp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/book-store-module/src/main/resources/mgnl-files/templates/bookStoreModule/areas/mainArea.jsp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/book-store-module/src/main/resources/mgnl-files/templates/bookStoreModule/areas/promos.jsp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/book-store-module/src/main/resources/mgnl-files/templates/bookStoreModule/pages/main.jsp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/book-store-webapp/src/main/webapp/css" charset="UTF-8" />
+  </component>
+</project>
