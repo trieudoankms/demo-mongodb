@@ -1,0 +1,30 @@
+@mixin background-linear-gradient($direction, $color1, $color2) {
+  background: #3498db;
+  background-image: -webkit-linear-gradient($direction, $color1, $color2);
+  background-image: -moz-linear-gradient($direction, $color1, $color2);
+  background-image: -ms-linear-gradient($direction, $color1, $color2);
+  background-image: -o-linear-gradient($direction, $color1, $color2);
+  background-image: linear-gradient($direction, $color1, $color2);
+}
+
+@mixin border-radius($radius){
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+.btn {
+  @include background-linear-gradient(top, #3498db, #2980b9);
+  @include border-radius(10px);
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn:hover {
+      background: #3cb0fd;
+      @include background-linear-gradient(top, #3cb0fd, #3498db);
+      text-decoration: none;
+  }
