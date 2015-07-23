@@ -1,1 +1,1 @@
-Hello branch1
+Hello branch1Hello branch2, I will update this file!
