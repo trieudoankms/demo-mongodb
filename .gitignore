@@ -1,2 +1,4 @@
 /demo-gulp/node_modules
-*/target/**
+/demo-maven/demo-maven/target
+/demo-maven/demo-multiple-modules/my-app/target
+/demo-maven/demo-multiple-modules/my-webapp/target
